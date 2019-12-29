@@ -22,5 +22,13 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::get('/values', 'Api\KeyValueController@getValues');
     Route::post('/values', 'Api\KeyValueController@addValues');
+    Route::patch('/values', 'Api\KeyValueController@updateValues');
 
+});
+
+Route::fallback(function () {
+    return response()->json([
+        'status' => false,
+        'message' => 'Page Not Found'
+    ], 404);
 });

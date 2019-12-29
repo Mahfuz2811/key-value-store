@@ -2,6 +2,9 @@
 
 namespace App\Exceptions;
 
+use Request;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
@@ -46,6 +49,14 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if (((Request::isMethod('post') || Request::isMethod('patch')) && $exception instanceof MethodNotAllowedHttpException) || ((Request::isMethod('post') || Request::isMethod('patch')) && $exception instanceof NotFoundHttpException)) {
+            return response()->json([
+                'status' => false,
+                'message' => 'Page Not Found'
+            ], 404
+            );
+        }
+
         return parent::render($request, $exception);
     }
 }
