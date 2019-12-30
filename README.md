@@ -144,7 +144,7 @@ Response
 
 ### Get TTL value in minutes
 
-``` GET http://127.0.0.1:8000/api/v1/ttl```
+``` GET http://127.0.0.1:YOUR_PORT/api/v1/ttl```
 
 Response
 ```
