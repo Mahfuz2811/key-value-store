@@ -24,6 +24,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('/values', 'Api\KeyValueController@addValues');
     Route::patch('/values', 'Api\KeyValueController@updateValues');
 
+    Route::get('/ttl', 'Api\TtlController@getTtl');
+    Route::post('/ttl', 'Api\TtlController@updateTtl');
+
 });
 
 Route::fallback(function () {

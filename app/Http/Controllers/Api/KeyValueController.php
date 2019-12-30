@@ -112,6 +112,7 @@ class KeyValueController extends Controller
             {
                 // check matching key
                 $ttl = Ttl::select('ttl')->first();
+                // check values those have ttl
                 $row = KeyVal::where('key', $key)
                     ->where(DB::raw('TIMESTAMPDIFF(MINUTE, key_vals.`last_store_time`, now())'), '<=', $ttl->ttl)
                     ->first();
