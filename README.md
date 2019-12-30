@@ -94,7 +94,7 @@ Response
 
 ### Update a value in the store and also reset the TTL.
 
-``` POST http://127.0.0.1:YOUR_PORT/api/v1/values```
+``` PATCH http://127.0.0.1:YOUR_PORT/api/v1/values```
 
 Request Body
 ```
@@ -135,5 +135,41 @@ Response
             "value": "maldives island"
         }
     ]
+}
+```
+
+
+### You can dynamically add ttl
+
+
+### Get ttl value in minutes
+
+``` GET http://127.0.0.1:8000/api/v1/ttl```
+
+Response
+```
+{
+    "is_success": true,
+    "ttl": 40
+}
+```
+
+
+### Update a value in the store and also reset the TTL.
+
+``` POST http://127.0.0.1:YOUR_PORT/api/v1/values```
+
+Request Body
+```
+{
+	"ttl": 2
+}
+```
+
+Response
+```
+{
+    "is_success": true,
+    "message": "Operation completed successfully"
 }
 ```
