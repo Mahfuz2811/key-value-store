@@ -139,10 +139,10 @@ Response
 ```
 
 
-### You can dynamically add ttl
+### You can dynamically add TTL
 
 
-### Get ttl value in minutes
+### Get TTL value in minutes
 
 ``` GET http://127.0.0.1:8000/api/v1/ttl```
 
@@ -155,14 +155,14 @@ Response
 ```
 
 
-### Update a value in the store and also reset the TTL.
+### Update TTL value min 5 and max 250.
 
 ``` POST http://127.0.0.1:YOUR_PORT/api/v1/values```
 
 Request Body
 ```
 {
-	"ttl": 2
+	"ttl": 5
 }
 ```
 
